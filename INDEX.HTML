@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.main{
+    font-family: serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(123, 168, 189, 0.4), rgba(26, 83, 87, 0.6),rgba(65, 94, 105, 0.4),rgba(0,0,0,0.9));
+    display: flex;
+}
+
+nav{
+    background: cadetblue;
+    height: 80px;
+    width: 100%;
+}
+
+nav label{
+    color: whitesmoke;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 50px;
+    font-weight: bold;
+
+}
+
+nav ul{
+    float: right;
+    margin-left: 20px;
+    line-height: 80px;
+
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+ color: whitesmoke;
+ font-size: 17px;
+padding: 7px 13px;
+border-radius: 3px;
+}
+
+a:hover{
+    background: rgb(120, 150, 150);
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 20px;
+    color: yellowgreen;
+    font-family: serif;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 650px){
+    .checkbtn{
+        display: block;
+    }
+
+    ul{
+        position: fixed;
+        width: 30%;
+        height: 25vh;
+        background: linear-gradient(rgba(123, 168, 189, 0.4), rgba(26, 83, 87, 0.6),rgba(65, 94, 105, 0.4),rgba(0,0,0,0.9));
+        right: -30%;
+        text-align: center;
+        transition: all .5s ease;
+        font-family: cursive;
+        border-radius: 3px;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 2px;
+        line-height: 50px;
+    }
+
+    nav ul li a:hover, a.active{
+        background: none;
+        color: yellowgreen;
+        padding-left: 20px;
+    }
+
+    #check:checked ~ ul{
+        right: 0;
+    }
+}
+
+.container{
+width: 80%;
+padding: 20px;
+}
+
+.container h2{
+    width: 100%;
+    color: whitesmoke;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container h4{
+    width: 100%;
+    color: whitesmoke;
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.container .row100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1f));
+}
+
+.container .row100 .col{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: .5s;
+}
+
+.container .row100 .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: rgb(219, 219, 219);
+}
+
+.container .row100 .inputBox input,
+.container .row100 .inputBox.textarea textarea
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #fff;
+}
+
+.container .row100 .inputBox .text, .email, .password, .project{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 5px;
+    display: block;
+    transition: .5s;
+    pointer-events: none;
+
+}
+
+.container .row100 .inputBox input:focus + .text,
+.container .row100 .inputBox input:valid + .text
+{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox .line{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: rgb(219, 219, 219);
+    transition: .5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.container .row100 .inputBox input:focus ~ .line,
+.container .row100 .inputBox input:valid ~ .line{
+height: 100%;
+}
+
+.container .row100 .inputBox .textarea{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+
+.container .row100 .inputBox .textarea textarea{
+    height: 0;
+    resize: none;
+}
+
+.container .row100 .inputBox textarea:focus + .text,
+.container .row100 .inputBox textarea:valid + .text
+{
+    top: -35px;
+    left: -10px;
+}
+
+.container .row100 .inputBox textarea:focus ~ .line,
+.container .row100 .inputBox textarea:valid ~ .line{
+    height: 100%;
+}
+
+input[type="submit"]{
+    border-radius: none;
+    padding: 7px 25px;
+    cursor: pointer;
+    outline: none;
+    background: rgb(219, 219, 219);
+    color: black;
+    border-radius: 2px;
+    font-size: 13px;
+}
+
+p{
+    color: whitesmoke;
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">MENU</label>
+        <label class="Logo">PAS</label>
+        <ul>
+            <li><a class="active" href="{% url 'home' %}">HOME</a></li>
+            <li><a href="{% url 'About' %}">ABOUT</a></li>
+            <li><a href="/Departments/">DEPARTMENTS</a></li>
+        </ul>
+    </nav>
+<div class="main">
+    <div class="container">
+         <h2>This is FAB projects archiving system</h2>
+         <h4>Please enter your details below</h4>
+         <div class="row100">
+             <div class="col">
+                 <div class="inputBox">
+                     <input type="email" name="email" id="name" required="required">
+                     <span class="text">Email</span>
+                     <span class="line "></span>
+                 </div>
+             </div>
+             <div class="col">
+                <div class="inputBox">
+                    <input type="password" name="password" id="password" required="required">
+                    <span class="text">Password</span>
+                    <span class="line "></span>
+                </div>
+            </div>
+        </div>
+        <div class="row100">
+            <div class="col">
+                <div class="inputBox">
+                    <input type="year" name="year" id="year" required="required">
+                    <span class="text">Year</span>
+                    <span class="line "></span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="inputBox">
+                    <input type="text" name="text" id="project" required="required">
+                    <span class="text">Project Name</span>
+                    <span class="line "></span>
+                </div>
+            </div>
+            <div class="row100">
+                <div class="col">
+                    <div class="inputBox textarea">
+                        <textarea name="" id="" cols="20" rows="5"></textarea>
+                        <span class="text">Write project description here</span>
+                        <span class="line "></span>
+                    </div>
+                </div>
+         </div>
+         <div class="row100">
+            <div class="col">
+                <input type="submit" value="Get Project">
+            </div>
+         </div>
+    </div>
+    <p>Have no account? <a href="admin.html">Create one</a></p>
+    </div>
+</body>
+</html>
